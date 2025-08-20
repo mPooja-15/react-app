@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.modal-container .modal-content {
+	border-radius: 24px;
+	box-shadow: 0px 8px 16px 0px #00A48154;
+}
+
+[lang="he"] .close-btn {
+	left: 16px;
+  top: 6px;
+}
+
+[lang="en"] .close-btn {
+	right: 14px;
+  top: 6px;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.top-responsive {
+	top: 60px;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+	width: 9px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+	background: #E6E6E6;
+	border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+	background: #C5C5C5;
+	border-radius: 10px;
+}
+
+.scroll-height {
+	height: 660px;
+}
+
+@media (max-width: 1440px) {
+	.scroll-height {
+		height: 594px;
+	}
+}
+
+@media (max-width: 768px) {
+	.scroll-height {
+		height: 540px;
+	}
+}
+
+@media (max-width: 576px) {
+	.custom-col {
+		background-color: transparent;
+		box-shadow: none;
+	}
+
+	.main_content {
+		padding-top: 16px;
+	}
+
+	.top-responsive {
+		top: 10px;
+	}
+
+  .scroll-height {
+		height: auto;
+	}
+}
+
+
