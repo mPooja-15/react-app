@@ -14,7 +14,7 @@ const SubscriptionPurchase = () => {
 
     return (
         <>
-            <div className="px-4 bg-white rounded-3 shadow-lg lg:py-0 py-4 2xl:mb-0 xl:mb-16 mb-32">
+            <div className="px-4 bg-white rounded-3 shadow-lg lg:py-0 py-4 2xl:mb-0 xl:mb-16 lg:mb-32 mb-4">
                 <p className="text-center text-[25px] font-semibold leading-[100%] text-[#00A481] border-bottom d-none d-md-block pb-[14px] mb-[38px]">
                     {t("subscription.title")}
                 </p>
