@@ -1,27 +1,23 @@
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import * as Yup from "yup";
 import loginBg from "../../assets/images/loginBg.svg";
 import mobileLoginBg from "../../assets/images/mobile_login_bg.svg";
 import mobileBgImage from "../../assets/images/mobile_bg_Image.svg";
 import logo from "../../assets/images/logo.svg";
 import googleIcon from "../../assets/images/google.svg";
+import { useLoginEntry } from "../../Services/LoginEntryServices";
 
 const LoginEntry = () => {
     const { t } = useTranslation();
-    const [isLoginTab, setIsLoginTab] = useState(true);
-
-    const validationSchema = Yup.object().shape({
-        email: Yup.string()
-            .email(t("invalid_email"))
-            .required(t("required")),
-        password: Yup.string().required(t("required")),
-    });
-
-    const smsValidationSchema = Yup.object().shape({
-        code: Yup.string().required(t("required")),
-    });
+    const {
+        isLoginTab,
+        setIsLoginTab,
+        validationSchema,
+        smsValidationSchema,
+        handleLoginSubmit,
+        handleSmsSubmit
+    } = useLoginEntry();
 
     return (
         <div className="min-h-screen flex flex-col lg:flex-row bg-[#FCFCFC] relative">
@@ -31,7 +27,6 @@ const LoginEntry = () => {
             <div className="lg:hidden w-full relative max-sm:h-screen">
                 <img src={mobileBgImage} alt="Login background" className="w-full max-sm:h-full max-sm:object-cover" />
             </div>
-
 
             <div className="lg:relative absolute lg:top-0 top-6 w-full">
                 <div className="lg:hidden">
@@ -86,9 +81,7 @@ const LoginEntry = () => {
                                 <Formik
                                     initialValues={{ email: "", password: "" }}
                                     validationSchema={validationSchema}
-                                    onSubmit={(values) => {
-                                        console.log("Login Values:", values);
-                                    }}
+                                    onSubmit={handleLoginSubmit}
                                 >
                                     {() => (
                                         <Form>
@@ -157,9 +150,7 @@ const LoginEntry = () => {
                                 <Formik
                                     initialValues={{ code: "" }}
                                     validationSchema={smsValidationSchema}
-                                    onSubmit={(values) => {
-                                        console.log("SMS Login Values:", values);
-                                    }}
+                                    onSubmit={handleSmsSubmit}
                                 >
                                     {() => (
                                         <Form>

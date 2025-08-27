@@ -659,7 +659,11 @@
     "purchase": "Purchase",
     "contact_sales": "Contact Sales",
     "payment_received": "Payment received,",
-    "purchase_success": "Subscription purchased successfully!"
+    "purchase_success": "Subscription purchased successfully!",
+    "terms": [
+    "* All prices are exclusive of VAT and rounded up",
+    "* Document balance resets every month"
+  ]
   },
   "plans": {
     "starter": "STARTER",

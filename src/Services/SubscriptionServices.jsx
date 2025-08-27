@@ -1,4 +1,11 @@
+import { useState } from "react";
+
 export const useSubscriptionServices = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const handleOpenModal = () => setIsModalOpen(true);
+    const handleCloseModal = () => setIsModalOpen(false);
+
     const getSubscriptionData = (t) => {
         return [
             {
@@ -48,5 +55,10 @@ export const useSubscriptionServices = () => {
         ];
     };
 
-    return { getSubscriptionData };
+    return {
+        getSubscriptionData,
+        isModalOpen,
+        handleOpenModal,
+        handleCloseModal
+    };
 };

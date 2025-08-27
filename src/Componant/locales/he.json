@@ -641,7 +641,11 @@
     "purchase": "לרכישה",
     "contact_sales": "צרו קשר עם המכירות",
     "payment_received": "תשלום התקבל,",
-    "purchase_success": "המנוי נרכש בהצלחה!"
+    "purchase_success": "המנוי נרכש בהצלחה!",
+    "terms": [
+    "* כל המחירים אינם כוללים מע\"מ ומעוגלים מעלה",
+    "* יתרת המסמכים מתאפסת בכל חודש"
+  ]
   },
   "plans": {
     "starter": "STARTER",
