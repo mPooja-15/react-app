@@ -77,6 +77,7 @@ const DesktopView = ({ t, validationSchema, handleSubmit, showModal, setShowModa
                 initialValues={{ email: "", phone: "" }}
                 validationSchema={validationSchema}
                 onSubmit={handleSubmit}
+                validateOnChange={true}
               >
                 {({ touched, errors, isValid, dirty }) => (
                   <Form className="space-y-6">
@@ -99,8 +100,10 @@ const DesktopView = ({ t, validationSchema, handleSubmit, showModal, setShowModa
                     </div>
                     <div>
                       <Field
-                        type="number"
+                        type="text"
                         name="phone"
+                        inputMode="numeric" 
+                        pattern="\d*"
                         className={`w-full px-9 py-3 border border-[#D6D6D6] text-xl rounded-[5px] focus:outline-none font-semibold ${
                           touched.phone && errors.phone
                             ? "border-red-500"

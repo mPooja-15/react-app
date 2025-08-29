@@ -20,7 +20,7 @@ const Register = () => {
 
   return (
     <div
-      className="min-h-[calc(100vh-64px)] flex items-center justify-center relative bg-no-repeat bg-cover lg:py-4 py-9 lg:px-0 px-[32px] top-[64px]"
+      className="min-h-[calc(100vh-64px)] flex items-center justify-center relative bg-no-repeat bg-cover lg:py-4 py-9 lg:px-[16px] px-[32px] top-[64px]"
       style={{
         backgroundImage: `url(${mobileBgImage})`,
       }}

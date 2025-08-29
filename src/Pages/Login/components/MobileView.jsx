@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import mobileBgImage from "../../../assets/images/mobile_bg_Image.svg";
 import mobile_couple from "../../../assets/images/mobile_couple.svg";
@@ -6,7 +6,13 @@ import googleIcon from "../../../assets/images/google.svg";
 import bgImage from "../../../assets/images/bg_Image.svg";
 import ConfirmModal from "../confirmModal";
 
-const MobileView = ({ t, validationSchema, handleSubmit, showModal, setShowModal }) => {
+const MobileView = ({
+  t,
+  validationSchema,
+  handleSubmit,
+  showModal,
+  setShowModal,
+}) => {
   return (
     <div
       className="min-h-[calc(100vh-64px)] relative bg-no-repeat bg-cover lg:py-0 py-9 top-[64px]"
@@ -14,8 +20,10 @@ const MobileView = ({ t, validationSchema, handleSubmit, showModal, setShowModal
         backgroundImage: `url(${mobileBgImage})`,
       }}
     >
-      <div className="hidden lg:block absolute inset-0 bg-no-repeat bg-cover"
-        style={{ backgroundImage: `url(${bgImage})` }} />
+      <div
+        className="hidden lg:block absolute inset-0 bg-no-repeat bg-cover"
+        style={{ backgroundImage: `url(${bgImage})` }}
+      />
       <div className="xl:mb-0 2xl:px-0 lg:px-5 px-8">
         <p className="text-white font-bold xl:text-[45px] text-[40px] xl:leading-[100%] leading-[50px] xl:px-0 lg:px-[30px]">
           {t("hero_title")}
@@ -61,6 +69,7 @@ const MobileView = ({ t, validationSchema, handleSubmit, showModal, setShowModal
             initialValues={{ email: "", phone: "" }}
             validationSchema={validationSchema}
             onSubmit={handleSubmit}
+            validateOnChange={true}
           >
             {({ touched, errors, isValid, dirty }) => (
               <Form className="space-y-6">
@@ -68,10 +77,11 @@ const MobileView = ({ t, validationSchema, handleSubmit, showModal, setShowModal
                   <Field
                     type="email"
                     name="email"
-                    className={`w-full px-4 py-3 border border-[#D6D6D6] text-base rounded-[5px] focus:outline-none font-semibold ${touched.email && errors.email
+                    className={`w-full px-4 py-3 border border-[#D6D6D6] text-base rounded-[5px] focus:outline-none font-semibold ${
+                      touched.email && errors.email
                         ? "border-red-500"
                         : "border-gray-300"
-                      }`}
+                    }`}
                     placeholder={t("placeholder_email")}
                   />
                   <ErrorMessage
@@ -82,12 +92,15 @@ const MobileView = ({ t, validationSchema, handleSubmit, showModal, setShowModal
                 </div>
                 <div>
                   <Field
-                    type="tel"
+                    type="number"
                     name="phone"
-                    className={`w-full px-4 py-3 border border-[#D6D6D6] text-base rounded-[5px] focus:outline-none font-semibold ${touched.phone && errors.phone
+                    inputMode="numeric"
+                    pattern="\d*"
+                    className={`w-full px-4 py-3 border border-[#D6D6D6] text-base rounded-[5px] focus:outline-none font-semibold ${
+                      touched.phone && errors.phone
                         ? "border-red-500"
                         : "border-gray-300"
-                      }`}
+                    }`}
                     placeholder={t("placeholder_phone")}
                   />
                   <ErrorMessage

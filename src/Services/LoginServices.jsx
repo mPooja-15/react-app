@@ -10,8 +10,8 @@ export const useLoginForm = () => {
   const validationSchema = Yup.object().shape({
     email: Yup.string().email(t("invalidEmail")).required(t("emailRequired")),
     phone: Yup.string()
-      .matches(/^[0-9]{10}$/, t("invalidPhone"))
-      .required(t("phoneRequired")),
+  .matches(/^\d{10}$/, t("invalidPhone"))
+  .required(t("phoneRequired")),
   });
 
   const handleSubmit = (values, { setSubmitting }) => {
