@@ -1,25 +1,36 @@
 import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import mobileBgImage from "../../../assets/images/mobile_bg_Image.svg";
-import mobile_couple from "../../../assets/images/mobile_couple.svg";
-import googleIcon from "../../../assets/images/google.svg";
-import bgImage from "../../../assets/images/bg_Image.svg";
-import ConfirmModal from "../confirmModal";
+import mobileBgImage from "../../assets/images/mobile_bg_Image.svg";
+import mobile_couple from "../../assets/images/mobile_couple.svg";
+import googleIcon from "../../assets/images/google.svg";
+import bgImage from "../../assets/images/bg_Image.svg";
+import ConfirmModal from "./confirmModal";
+import mobile_logo from '../../assets/images/mobile_logo.svg';
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const MobileView = ({
+const LoginMobile = ({
   t,
   validationSchema,
   handleSubmit,
   showModal,
   setShowModal,
 }) => {
+  const navigate = useNavigate();
+  const { i18n } = useTranslation();
   return (
     <div
-      className="min-h-[calc(100vh-64px)] relative bg-no-repeat bg-cover lg:py-0 py-9 top-[64px]"
+      className="min-h-[calc(100vh-64px)] relative bg-no-repeat bg-cover lg:py-0 py-9 md:top-[64px]"
       style={{
         backgroundImage: `url(${mobileBgImage})`,
       }}
     >
+      <div className="md:hidden flex w-full justify-between items-center mb-[35px] px-4">
+        <a className="logo_main" href="/">
+          <img src={mobile_logo} width="158px" height="30px" alt="mobile_logo" />
+        </a>
+        <button onClick={() => navigate(`/${i18n.language}/login-entry`)} className="bg-[#006650] text-white rounded-full px-4 py-1.5">{t("login")}</button>
+      </div>
       <div
         className="hidden lg:block absolute inset-0 bg-no-repeat bg-cover"
         style={{ backgroundImage: `url(${bgImage})` }}
@@ -127,4 +138,4 @@ const MobileView = ({
   );
 };
 
-export { MobileView };
+export { LoginMobile };

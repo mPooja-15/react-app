@@ -1,7 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { useLoginEntry } from "../../Services/LoginEntryServices";
-import DesktopView from "./components/DesktopView";
-import MobileView from "./components/MobileView";
+import LoginEntryen from "./LoginEntryen";
+import LoginEntryMobile from "./LoginEntryMobile";
 
 const LoginEntry = () => {
   const { t } = useTranslation();
@@ -18,7 +18,7 @@ const LoginEntry = () => {
     <div className="min-h-screen flex flex-col lg:flex-row bg-[#FCFCFC] relative">
       <div className="lg:relative absolute w-full">
         <div className="hidden lg:block">
-          <DesktopView
+          <LoginEntryen
             isLoginTab={isLoginTab}
             setIsLoginTab={setIsLoginTab}
             validationSchema={validationSchema}
@@ -30,7 +30,7 @@ const LoginEntry = () => {
         </div>
 
         <div className="lg:hidden">
-          <MobileView
+          <LoginEntryMobile
             isLoginTab={isLoginTab}
             setIsLoginTab={setIsLoginTab}
             validationSchema={validationSchema}

@@ -1,8 +1,8 @@
 import { useSubscriptionServices } from "../../Services/SubscriptionServices";
 import { useTranslation } from "react-i18next";
 import ContactSalesModal from "./ContactSalesModal";
-import { DesktopView } from "./components/DesktopView";
-import { MobileView } from "./components/MobileView";
+import { SubscriptionPurchaseen } from "./SubscriptionPurchaseen";
+import { SubscriptionPurchaseMobile } from "./SubscriptionPurchaseMobile";
 
 const SubscriptionPurchase = () => {
     const { t } = useTranslation();
@@ -31,11 +31,11 @@ const SubscriptionPurchase = () => {
                     <p className="text-center text-xl font-bold leading-[100%] text-[#00A481] lg:mt-[72px] mt-[30px] lg:mb-[34px] mb-[10px]">
                         {t("subscription.choose_plan")}
                     </p>
-                    <DesktopView plans={plans} t={t} handleOpenModal={handleOpenModal} />
+                    <SubscriptionPurchaseen plans={plans} t={t} handleOpenModal={handleOpenModal} />
                 </div>
             </div>
             <div className="mb-[7rem] px-0 md:hidden mt-4">
-                <MobileView plans={plans} t={t} handleOpenModal={handleOpenModal} />
+                <SubscriptionPurchaseMobile plans={plans} t={t} handleOpenModal={handleOpenModal} />
             </div>
 
             <ContactSalesModal show={isModalOpen} handleClose={handleCloseModal} />

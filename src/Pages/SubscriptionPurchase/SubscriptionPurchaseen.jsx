@@ -1,8 +1,8 @@
 import React from 'react';
-import checkCircle from '../../../assets/images/check_circle.svg';
-import enterpriseIcon from '../../../assets/images/enterprise_icon.svg';
+import checkCircle from '../../assets/images/check_circle.svg';
+import enterpriseIcon from '../../assets/images/enterprise_icon.svg';
 
-export const DesktopView = ({ plans, t, handleOpenModal }) => (
+export const SubscriptionPurchaseen = ({ plans, t, handleOpenModal }) => (
   <>
     <div className="grid xl:grid-cols-4 grid-cols-2 gap-10 d-none d-md-grid">
     {plans.map((plan, idx) => (

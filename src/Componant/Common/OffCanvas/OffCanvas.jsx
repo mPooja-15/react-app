@@ -13,6 +13,7 @@ const OffCanvas = ({buttonVariant = 'primary' , buttonText, placement, title, bo
         variant={buttonVariant} 
         onClick={handleShow} 
         className="border-0 bg-white p-0"
+        style={{ color: "#00A481" }}
       >
         {buttonText}
       </Button>

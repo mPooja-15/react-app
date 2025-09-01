@@ -1,9 +1,12 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import logo from "../../../assets/images/logo.svg";
-import loginBg from "../../../assets/images/loginBg.svg";
-import googleIcon from "../../../assets/images/google.svg";
+import mobileLoginBg from "../../assets/images/mobile_login_bg.svg";
+import mobileBgImage from "../../assets/images/mobile_bg_Image.svg";
+import googleIcon from "../../assets/images/google.svg";
+import mobile_logo from '../../assets/images/mobile_logo.svg';
+import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-const DesktopView = ({
+const LoginEntryMobile = ({
   isLoginTab,
   setIsLoginTab,
   validationSchema,
@@ -12,29 +15,32 @@ const DesktopView = ({
   handleSmsSubmit,
   t,
 }) => {
+  const navigate = useNavigate();
+  const { i18n } = useTranslation();
   return (
-    <div className="min-h-screen flex flex-row bg-[#FCFCFC] relative">
-      <div className="flex items-center justify-center w-full max-w-[675px] h-screen">
-        <img src={loginBg} alt="Login background" className="w-full h-full object-cover"/>
+    <div className="flex flex-col bg-[#FCFCFC] relative h-screen"  style={{ backgroundImage: `url(${mobileBgImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
+      <div className="md:hidden flex w-full justify-between items-center px-4 py-6">
+        <a className="logo_main" href="/">
+          <img src={mobile_logo} width="158px" height="30px" alt="mobile_logo" />
+        </a>
+        <button onClick={() => navigate(`/${i18n.language}/login-entry`)} className="bg-[#006650] text-white rounded-full px-4 py-1.5">{t("login")}</button>
       </div>
 
-      <div className="relative top-0 w-full h-screen overflow-y-auto">
-        <div className="w-full py-9 px-10 bg-[#FCFCFC] h-full relative">
-          <div className="text-center flex justify-end">
-            <img src={logo} alt="Logo" />
-          </div>
-
+      <div className="absolute w-full mt-20">
+        <div>
+          <h1 className="text-[40px] font-bold text-[#FFFFFF] text-center leading-[50px] mb-3">
+            {t("login_entry_title")}
+          </h1>
+          <p className="text-[#FFFFFF] font-medium text-[20px] leading-[100%] text-center">
+            {t("login_entry_subtitle")}
+          </p>
+        </div>
+        <div className="w-full flex justify-center">
+          <img src={mobileLoginBg} alt="Login background" className="" />
+        </div>
+        <div className="py-6 px-6  bottom-[90px] bg-[#FCFCFC] h-full relative mx-[16px] rounded-[16px]">
           <div className="w-full max-w-[508px] mx-auto h-full flex items-center">
             <div className="w-full">
-              <div className="mb-[80px] block">
-                <h1 className="text-[45px] font-bold text-[#00A481] text-center">
-                  {t("login_entry_title")}
-                </h1>
-                <p className="text-[#000000] font-normal text-[23px] leading-[34px] text-center">
-                  {t("login_entry_subtitle")}
-                </p>
-              </div>
-
               <div className="flex justify-center mb-9">
                 <button
                   onClick={() => setIsLoginTab(true)}
@@ -107,7 +113,7 @@ const DesktopView = ({
                         </div>
                       </div>
 
-                      <div className="w-full flex flex-row items-center justify-center gap-12 text-xl mt-20">
+                      <div className="w-full flex flex-col items-center justify-center gap-[20px] text-xl mt-10">
                         <button
                           type="submit"
                           className="w-[218px] text-white px-2 py-[12px] rounded-full shadow-[0px_5px_5px_0px_#00000017] bg-[linear-gradient(90deg,#00A6A4_0%,#55CD85_100%)]"
@@ -178,4 +184,4 @@ const DesktopView = ({
   );
 };
 
-export default DesktopView;
+export default LoginEntryMobile;

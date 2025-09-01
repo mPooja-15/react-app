@@ -30,6 +30,16 @@ const Header = () => {
     e.preventDefault();
     localStorage.removeItem("authtoken");
     navigate(`/${i18n.language}/login`);
+  };
+
+  const isAuthPage = [
+    `/${i18n.language}/login`,
+    `/${i18n.language}/login-entry`,
+    `/${i18n.language}/register`
+  ].includes(location.pathname);
+
+  if (isOpen && isAuthPage) {
+    return null;
   }
 
   return (

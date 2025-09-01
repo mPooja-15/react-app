@@ -4,6 +4,8 @@ import mobileBgImage from "../../assets/images/mobile_bg_Image.svg";
 import darkToy from "../../assets/images/darkToy.svg";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useRegister } from "../../Services/RegisterServices";
+import mobile_logo from '../../assets/images/mobile_logo.svg';
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const { t } = useTranslation();
@@ -17,20 +19,28 @@ const Register = () => {
     handleSubmit,
     setStep
   } = useRegister();
+  const navigate = useNavigate();
+  const { i18n } = useTranslation();
 
   return (
     <div
-      className="min-h-[calc(100vh-64px)] flex items-center justify-center relative bg-no-repeat bg-cover lg:py-4 py-9 lg:px-[16px] px-[32px] top-[64px]"
+      className="min-h-[calc(100vh-64px)] flex flex-col items-center justify-center relative bg-no-repeat bg-cover lg:py-4 py-9 lg:px-[16px] px-[32px] md:top-[64px]"
       style={{
         backgroundImage: `url(${mobileBgImage})`,
       }}
     >
+      <div className="md:hidden flex w-full justify-between items-center mb-[35px]">
+        <a className="logo_main" href="/">
+          <img src={mobile_logo} width="158px" height="30px" alt="mobile_logo" />
+        </a>
+        <button onClick={() => navigate(`/${i18n.language}/login-entry`)} className="bg-[#006650] text-white rounded-full px-4 py-1.5">{t("login")}</button>
+      </div>
       <div className="hidden lg:block inset-0 bg-no-repeat bg-cover"
         style={{ backgroundImage: `url(${bgImage})` }} />
       <div className="absolute left-60 bottom-16 z-10">
         <img src={darkToy} alt={t("alt_house")} />
       </div>
-      <div className="absolute right-60 top-16">
+      <div className="absolute right-60 top-16 lg:flex hidden">
         <img src={darkToy} alt={t("alt_house")} />
       </div>
       <div className="w-full max-w-[1194px] bg-[#FAFAFA] rounded-xl shadow-2xl overflow-hidden lg:py-[37px] z-10">

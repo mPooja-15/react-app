@@ -1,8 +1,8 @@
 import React from 'react';
-import checkCircle from '../../../assets/images/check_circle.svg';
-import enterpriseIcon from '../../../assets/images/enterprise_icon.svg';
+import checkCircle from '../../assets/images/check_circle.svg';
+import enterpriseIcon from '../../assets/images/enterprise_icon.svg';
 
-export const MobileView = ({ plans, t, handleOpenModal }) => (
+export const SubscriptionPurchaseMobile = ({ plans, t, handleOpenModal }) => (
     <>
         <div className="gap-6 flex overflow-x-scroll">
             {plans.map((plan, idx) => (

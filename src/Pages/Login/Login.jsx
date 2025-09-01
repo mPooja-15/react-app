@@ -2,8 +2,8 @@ import { useTranslation } from "react-i18next";
 import { useState } from "react";
 import { useLoginForm } from "../../Services/LoginServices";
 import ConfirmModal from "./confirmModal";
-import { DesktopView } from "./components/DesktopView";
-import { MobileView } from "./components/MobileView";
+import { Loginen } from "./Loginen";
+import { LoginMobile } from "./LoginMobile";
 
 const Login = () => {
   const { t } = useTranslation();
@@ -21,10 +21,10 @@ const Login = () => {
   return (
     <>
       <div className="hidden lg:block">
-        <DesktopView {...commonProps} />
+        <Loginen {...commonProps} />
       </div>
       <div className="lg:hidden">
-        <MobileView {...commonProps} />
+        <LoginMobile {...commonProps} />
       </div>
       <ConfirmModal show={showModal} handleClose={() => setShowModal(false)} />
     </>

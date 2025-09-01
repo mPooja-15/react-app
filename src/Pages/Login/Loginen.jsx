@@ -1,13 +1,13 @@
 import React from 'react';
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import toyBg from "../../../assets/images/bg_toy.svg";
-import bgImage from "../../../assets/images/bg_Image.svg";
-import mobileBgImage from "../../../assets/images/mobile_bg_Image.svg";
-import couple from "../../../assets/images/couple.svg";
-import googleIcon from "../../../assets/images/google.svg";
-import ConfirmModal from "../confirmModal";
+import toyBg from "../../assets/images/bg_toy.svg";
+import bgImage from "../../assets/images/bg_Image.svg";
+import mobileBgImage from "../../assets/images/mobile_bg_Image.svg";
+import couple from "../../assets/images/couple.svg";
+import googleIcon from "../../assets/images/google.svg";
+import ConfirmModal from "./confirmModal";
 
-const DesktopView = ({ t, validationSchema, handleSubmit, showModal, setShowModal }) => {
+const Loginen = ({ t, validationSchema, handleSubmit, showModal, setShowModal }) => {
   return (
     <div
       className="min-h-[calc(100vh-64px)] relative bg-no-repeat bg-cover lg:py-0 py-9 top-[64px]"
@@ -144,4 +144,4 @@ const DesktopView = ({ t, validationSchema, handleSubmit, showModal, setShowModa
   );
 };
 
-export { DesktopView };
+export { Loginen };
