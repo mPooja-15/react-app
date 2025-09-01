@@ -19,7 +19,7 @@ const LoginEntryMobile = ({
   const { i18n } = useTranslation();
   return (
     <div className="flex flex-col bg-[#FCFCFC] relative h-screen"  style={{ backgroundImage: `url(${mobileBgImage})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover' }}>
-      <div className="md:hidden flex w-full justify-between items-center px-4 py-6">
+      <div className="lg:hidden flex w-full justify-between items-center px-4 py-6">
         <a className="logo_main" href="/">
           <img src={mobile_logo} width="158px" height="30px" alt="mobile_logo" />
         </a>
